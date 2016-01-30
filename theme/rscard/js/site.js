@@ -9,7 +9,9 @@
     var stickyNavHeight = 0;
 
     var calendar = new Object();
+    /*
     var calendarBusyDays = [
+
         new Date(2016, 0, 10),
         new Date(2016, 0, 8),
         new Date(2016, 0, 12),
@@ -67,6 +69,31 @@
         new Date(2016, 11, 30),
         new Date(2016, 11, 31)
     ];
+    */
+
+    var calendarBusyDays = [
+      new Date(2016, 0, 4),
+      new Date(2016, 0, 11),
+      new Date(2016, 0, 18),
+      new Date(2016, 0, 25),
+
+      new Date(2016, 0, 1),
+      new Date(2016, 0, 8),
+      new Date(2016, 0, 15),
+      new Date(2016, 0, 22),
+      new Date(2016, 0, 29),
+
+      new Date(2016, 1, 1),
+      new Date(2016, 1, 8),
+      new Date(2016, 1, 15),
+      new Date(2016, 1, 22),
+      new Date(2016, 1, 29),
+
+      new Date(2016, 1, 5),
+      new Date(2016, 1, 12),
+      new Date(2016, 1, 19),
+      new Date(2016, 1, 26),
+    ];
 
 
     /**
@@ -92,7 +119,7 @@
             $animate.appear();
 
             $animate.on('appear', function (event, affected) {
-				for (var i = 0; i < affected.length; i++) {				  
+				for (var i = 0; i < affected.length; i++) {
 				  $(affected[i]).addClass('animated');
 				}
             });
@@ -127,7 +154,7 @@
     function positioningInterestsTooltips() {
 		var interests = $(".interests-list");
 		var tooltips = $(".interests-list li span");
-		
+
         if (interests.length > 0) {
 			for (var i = 0; i < tooltips.length; i++) {
 				var width = $(tooltips[i]).outerWidth();
@@ -135,7 +162,7 @@
                 var left = (parent_width - width) / 2;
 
                 $(tooltips[i]).css('left', left + 'px');
-			}            
+			}
         }
     }
 
@@ -168,8 +195,8 @@
                     $col1_last_el_height = $($tline_col1_elems[i]).height();
                 }
 
-                // Positioning second column elements               
-				for (var i = 0; i < $tline_col2_elems.length; i++) {	
+                // Positioning second column elements
+				for (var i = 0; i < $tline_col2_elems.length; i++) {
                     $($tline_col2_elems[i]).css({'position': 'absolute', 'right': '0', 'top': $col2_top + 'px'});
                     $col2_top = $col2_top + $($tline_col2_elems[i]).height() + $gutter;
                     $col2_last_el_height = $($tline_col2_elems[i]).height();
@@ -195,19 +222,19 @@
 
     function availabilityCalendar() {
 		var calendarHtml = $(".calendar-busy", "#calendar");
-		
+
 		var calendarThead = calendarHtml.find('.calendar-thead');
 		var calendarTbody = calendarHtml.find('.calendar-tbody');
-		
+
 		var calendarTodayDay = calendarHtml.find('.calendar-today .day');
 		var calendarTodayMonth = calendarHtml.find('.calendar-today .month');
 		var calendarTodayWeekday = calendarHtml.find('.calendar-today .week-day');
-		
+
 		var calendarActiveMonth = calendarHtml.find('.active-month');
-		var calendarActiveYear = calendarHtml.find('.active-year');		
+		var calendarActiveYear = calendarHtml.find('.active-year');
 		var calendarActiveMonthAndYear = calendarActiveMonth.add(calendarActiveYear)
-		
-		
+
+
         if (calendarHtml.length > 0) {
             calendar = {
                 currentYear: new Date().getFullYear(),
@@ -314,7 +341,7 @@
                     if (!(this.active.year == this.limitUp.year && this.active.month == this.limitUp.month)) {
                         calendarActiveMonthAndYear.addClass('moveup');
                         calendarTbody.addClass('moveright');
-						
+
                         setTimeout(function () {
                             calendarActiveMonthAndYear.removeClass('moveup');
                             calendarActiveMonthAndYear.addClass('movedown');
@@ -373,7 +400,7 @@
             calendar.limitUp.month = calendar.currentMonth;
             calendar.limitDown.year = calendar.currentYear;
             calendar.limitDown.month = calendar.currentMonth;
-	    calendar.weekStart = calendarHtml.data('weekstart');
+	          calendar.weekStart = calendarHtml.data('weekstart');
             calendar.busyDays = calendarBusyDays;
 
             calendar.init();
@@ -441,7 +468,7 @@
 
     function stickyNavigationAppear() {
 		var header = $('.header');
-		
+
         if ($(window).width() > 767 && !isMobile) {
             if (stickyNavHeight < stickyNav.outerHeight()) {
                 stickyNavHeight = stickyNav.outerHeight();
@@ -462,7 +489,7 @@
     function hideSitePreloader() {
         $('#preloader').remove();
         $('body').removeClass('loading');
-    }    
+    }
 
     function initialiseGoogleMap() {
         var latlng;
@@ -599,7 +626,7 @@
         }
         return false;
     }
-	
+
 	function isValidEmail(emailAddress){
 		var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
 		return pattern.test(emailAddress);
@@ -608,27 +635,27 @@
 	function setSectionContactHeight() {
 		var section = $('#contact .row');
 		var section_box = section.find('.section-box');
-		
+
 		if($(window).width() > 767){
 			section_box.css('min-height', section.height()+'px');
 		} else {
 			section_box.css('min-height', '0px');
-		}		
+		}
 	}
-	
+
 	function ripple(element, pageX, pageY){
-		var $rippleElement = $('<span class="ripple-effect" />');                
+		var $rippleElement = $('<span class="ripple-effect" />');
 		var xPos = parseInt( pageX, 10 ) - parseInt( element.offset().left, 10 );
 		var yPos = parseInt( pageY, 10 ) - parseInt( element.offset().top, 10 );
 		var size = Math.floor( Math.min(element.height(), element.width()) * 0.5 );
 		var animateSize = Math.floor( Math.max(element.width(), element.height()) * Math.PI );
-							
+
 		$rippleElement
 			.css({
 				top: yPos,
 				left: xPos,
 				width: size,
-				height: size                   
+				height: size
 			})
 			.appendTo(element)
 			.animate({
@@ -656,7 +683,7 @@
             $('.price-box').css('height', 'auto');
         }
     }
-		
+
     /**
      * Window Resize
      */
@@ -717,7 +744,7 @@
         /** Calendar:
          *  calendar object initialization */
         availabilityCalendar();
-		
+
 	/** Contct Section:
 	 *  set equal height for section boxes */
 	setSectionContactHeight();
@@ -726,7 +753,7 @@
         setPriceBoxHeight();
 
         /** Reference Slider */
-	var ref_slider = $('.ref-slider');		
+	var ref_slider = $('.ref-slider');
         if (ref_slider.length > 0) {
             for (var i = 0; i < ref_slider.length; i++) {
                 var $ref_slider_prev = $(ref_slider[i]).closest('.section-box').find('.slider-prev');
@@ -816,7 +843,7 @@
         /** Material Inputs */
         var material_inputs = $('.input-field input, .input-field textarea');
 
-		for (var i = 0; i < material_inputs.length; i++) {	
+		for (var i = 0; i < material_inputs.length; i++) {
             if ($(material_inputs[i]).val())
                 $(material_inputs[i]).parent('.input-field').addClass('used');
             else
@@ -838,7 +865,7 @@
         /** Ripple:
          *  appears where clicked on the element */
         $(document).on(clickEventType, '.ripple', function (e) {
-			ripple( $(this), e.pageX, e.pageY );            
+			ripple( $(this), e.pageX, e.pageY );
         });
 
 
@@ -871,9 +898,9 @@
 
 
         /** Portfolio */
-		var grid_seector = $('.grid');		
+		var grid_seector = $('.grid');
         if (grid_seector.length > 0) {
-			
+
             // Isotope Initialization
             var $grid = grid_seector.isotope({
                 itemSelector: '.grid .grid-item',
@@ -888,11 +915,11 @@
             });
 
             // Isotope Filter
-			var filter = $('.filter');						
+			var filter = $('.filter');
             if (filter.length > 0) {
 				var filter_btn = filter.find('button');
 				var filter_btn_first = $('.filter-btn-group button:first-child');
-			
+
                 filterBarLinePositioning($grid, filter_btn_first);
                 filter_btn_first.addClass('active');
 
@@ -907,11 +934,11 @@
             // Isotope Append New Elements
             var $elemTotalCount = 0;
             var $elemLoadedCount = 0;
-            var $elemCountPerLoad = 3;			
+            var $elemCountPerLoad = 3;
 			var $gridMore = $('.grid-more');
 			var $gridMoreBtn = $gridMore.find('.btn');
 			var $gridAjaxLoader = $gridMore.find('.ajax-loader');
-			
+
             $gridMoreBtn.on('click', function () {
                 $.ajax({
                     url: "ajax/portfolio.html",
@@ -1129,45 +1156,45 @@
             $('html, body').animate({scrollTop : 0},800);
             return false;
         });
-		
-		/** Contact Form */			
+
+		/** Contact Form */
 		$('.contact-submit').on('click', function(e){
 			ripple( $(this).parent(), e.pageX, e.pageY );
-			
+
 			var errors;
 			var contact_form = $(this).closest('.contactForm');
-			var contact_form_items = contact_form.find('.input-field');		
+			var contact_form_items = contact_form.find('.input-field');
 			var name = contact_form.find('.contact-name');
 			var email = contact_form.find('.contact-email');
 			var message = contact_form.find('.contact-message');
-			var contact_form_response = contact_form.find('.contact-response');	
-			
+			var contact_form_response = contact_form.find('.contact-response');
+
 			// Reset errors
 			contact_form_items.removeClass('error');
 			errors = false;
-			
+
 			if (name.val()  === '') {
 				errors = true;
 				name.parent().addClass('error');
-			}		
+			}
 			if (email.val() === '' || !isValidEmail(email.val())) {
 				errors = true;
 				email.parent().addClass('error');
-			}		
+			}
 			if (message.val() === '') {
 				errors = true;
 				message.parent().addClass('error');
 			}
-			
+
 			if( !errors ) {
-				$.post("php/contact_form.php",
+				$.post("https://formkeep.com/f/ea5742d9b90e",
 					contact_form.serialize(),
 					function(response) {
-					   contact_form_response.html(response);				   
+					   contact_form_response.html(response);
 					}
-				);			
+				);
 			}
-			
+
 			return false;
 		});
 
@@ -1175,5 +1202,5 @@
         /** Preloader:
          *  site was successfully loaded, hide site pre-loader */
         hideSitePreloader();
-    });	
+    });
 })(jQuery);

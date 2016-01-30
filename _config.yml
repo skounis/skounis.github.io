@@ -3,7 +3,7 @@ title: Stavros Kounis
 fullname: Stavros Kounis
 slogan_short: Software developer and JavaScript enthusiast.
 slogan: Software developer and JavaScript enthusiast, passioned with web and mobile technologies.
-email: your-email@domain.com
+email: skounis [at] gmail [dot] com
 age: 40
 address: E. Venizelou 70, 67100, Xanthi, GR
 skype: skounis
@@ -17,6 +17,10 @@ latitude: 41.1410369
 longitude: 24.8862945
 twitter_username: jekyllrb
 github_username:  jekyll
+social_twitter: https://twitter.com/skounis
+social_linkedin:  https://gr.linkedin.com/in/stavroskounis
+social_gplus: https://plus.google.com/u/0/+StavrosKounis
+social_instagram: https://www.instagram.com/skounis/
 
 # Build settings
 markdown: kramdown

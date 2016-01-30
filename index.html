@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="sidebar sidebar-fixed">
+<div class="sidebar sidebar-fixed" style="display:none">
     <button class="btn-sidebar btn-sidebar-close"> <i class="icon icon-close"></i></button>
 
     <div class="widget-area">
@@ -158,9 +158,11 @@ layout: default
               <ul class="clearfix">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <!--
                 <li><a href="#portfolio">Portfolio</a> </li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#references">References</a></li>
+
                 <li>
                   <a href="category.html">Blog</a>
                   <ul>
@@ -176,13 +178,15 @@ layout: default
                     <li><a href="404.html">404 Page</a></li>
                   </ul>
                 </li>
+                -->
+                <li><a href="#medium">Blog</a></li>
                 <li><a href="#calendar">Calendar <span></span></a></li>
                 <li><a href="#contact">Contact <span></span></a></li>
               </ul>
             </nav>
 
-                            <button class="btn-mobile btn-mobile-nav">Menu</button>
-                            <button class="btn-sidebar btn-sidebar-open"><i class="icon icon-menu"></i></button>
+                            <button class="btn-mobile btn-mobile-nav" style="display:none">Menu</button>
+                            <button class="btn-sidebar btn-sidebar-open" style="display:none"><i class="icon icon-menu"></i></button>
                         </div><!-- .nav-wrap -->
                     </div>
                 </div>
@@ -210,7 +214,7 @@ layout: default
                                         <ul class="profile-list">
                                             <li class="clearfix">
                                                 <strong class="title">Age</strong>
-                                                <span class="cont">29</span>
+                                                <span class="cont">{{ site.age }}</span>
                                             </li>
                                             <li class="clearfix">
                                                 <strong class="title">Address</strong>
@@ -226,11 +230,11 @@ layout: default
                                             </li>
                                             <li class="clearfix">
                                                 <strong class="title">Freelance</strong>
-                                                <span class="cont">till April 15, 2016</span>
+                                                <span class="cont">Yes</span>
                                             </li>
                                             <li class="clearfix">
-                                                <strong class="title"><span class="button">On Vacation</span></strong>
-                                                <span class="cont"><i class="icon icon-calendar"></i>till March 25, 2016</span>
+                                                <strong class="title"><span class="button">Unavailable</span></strong>
+                                                <span class="cont"><i class="icon icon-calendar"></i>till Feb 29, 2016</span>
                                             </li>
                                         </ul>
               </div>
@@ -238,23 +242,25 @@ layout: default
           </div>
           <div class="profile-social">
             <ul class="social">
+              <!--
               <li><a class="ripple-centered" href="https://www.facebook.com" target="_blank"><i class="icon icon-facebook"></i></a></li>
-              <li><a class="ripple-centered" href="https://twitter.com" target="_blank"><i class="icon icon-twitter"></i></a></li>
-              <li><a class="ripple-centered" href="https://www.linkedin.com" target="_blank"><i class="icon icon-linkedin"></i></a></li>
-              <li><a class="ripple-centered" href="https://plus.google.com" target="_blank"><i class="icon icon-google-plus"></i></a></li>
+              -->
+              <li><a class="ripple-centered" href="{{site.social_twitter}}" target="_blank"><i class="icon icon-twitter"></i></a></li>
+              <li><a class="ripple-centered" href="{{site.social_linkedin}}" target="_blank"><i class="icon icon-linkedin"></i></a></li>
+              <li><a class="ripple-centered" href="{{site.social_gplus}}" target="_blank"><i class="icon icon-google-plus"></i></a></li>
+              <!--
               <li><a class="ripple-centered" href="https://dribbble.com" target="_blank"><i class="icon icon-dribbble"></i></a></li>
-              <li><a class="ripple-centered" href="https://www.instagram.com" target="_blank"><i class="icon icon-instagram"></i></a></li>
-            </ul>
+              -->
+              <li><a class="ripple-centered" href="{{site.social_instagram}}" target="_blank"><i class="icon icon-instagram"></i></a></li>            </ul>
           </div>
         </div>
 
                     <div class="profile-btn">
-                        <a class="btn btn-border ripple" href="">Download Resume</a>
+                        <a class="btn btn-border ripple" href="{{site.social_linkedin}}" target="_blank">Resume</a>
                     </div>
 
         <div class="profile-text">
-          <p>Hello! I'm {{ site.fullname }}. Team leader and FullStack Developer specializing in mobile and web technologies. Experienced with all stages of the development cycle for dynamic web projects.
-          Well-versed in numerous programming languages including JavaScript, SQL, and C. Stng background in project management and customer relations.</p>
+          <p>Hello! I'm {{ site.fullname }}. Team leader and FullStack Developer specializing in mobile and web technologies. Experienced with all stages of the development cycle with strong background in project management</p>
         </div>
       </div>
     </section><!-- #about -->
@@ -263,7 +269,7 @@ layout: default
     {% include skills.html %}
     {% endif %}
 
-    {% if true %}
+    {% if false %}
     {% include portfolio.html %}
     {% endif %}
 
@@ -287,8 +293,12 @@ layout: default
     {% include prices.html %}
     {% endif %}
 
-    {% if true %}
+    {% if false %}
     {% include blog.html %}
+    {% endif %}
+
+    {% if true %}
+    {% include medium.html %}
     {% endif %}
 
     {% if false %}
@@ -315,19 +325,23 @@ layout: default
     <footer class="footer">
         <div class="footer-social">
             <ul class="social">
+              <!--
       <li><a class="ripple-centered" href="https://www.facebook.com" target="_blank"><i class="icon icon-facebook"></i></a></li>
-      <li><a class="ripple-centered" href="https://twitter.com" target="_blank"><i class="icon icon-twitter"></i></a></li>
-      <li><a class="ripple-centered" href="https://www.linkedin.com" target="_blank"><i class="icon icon-linkedin"></i></a></li>
-      <li><a class="ripple-centered" href="https://plus.google.com" target="_blank"><i class="icon icon-google-plus"></i></a></li>
+      -->
+      <li><a class="ripple-centered" href="{{site.social_twitter}}" target="_blank"><i class="icon icon-twitter"></i></a></li>
+      <li><a class="ripple-centered" href="{{site.social_linkedin}}" target="_blank"><i class="icon icon-linkedin"></i></a></li>
+      <li><a class="ripple-centered" href="{{site.social_gplus}}" target="_blank"><i class="icon icon-google-plus"></i></a></li>
+      <!--
       <li><a class="ripple-centered" href="https://dribbble.com" target="_blank"><i class="icon icon-dribbble"></i></a></li>
-      <li><a class="ripple-centered" href="https://www.instagram.com" target="_blank"><i class="icon icon-instagram"></i></a></li>
+      -->
+      <li><a class="ripple-centered" href="{{site.social_instagram}}" target="_blank"><i class="icon icon-instagram"></i></a></li>
     </ul>
         </div>
     </footer><!-- .footer -->
 </div><!-- .wrapper -->
 
 
-<div class="home">
+<div class="home" style="display:none">
 
   <h1 class="page-heading">Posts</h1>
 
