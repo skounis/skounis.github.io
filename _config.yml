@@ -1,6 +1,12 @@
 # Site settings
-title: Your awesome title
+title: Stavros Kounis
+fullname: Stavros Kounis
+slogan_short: Software developer and JavaScript enthusiast.
+slogan: Software developer and JavaScript enthusiast, passioned with web and mobile technologies.
 email: your-email@domain.com
+age: 40
+address: E. Venizelou 70, 67100, Xanthi, GR
+skype: skounis
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
