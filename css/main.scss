@@ -24,20 +24,6 @@ $grey-color-dark:  darken($grey-color, 25%);
 $on-palm:          600px;
 $on-laptop:        800px;
 
-
-// Fix the size of the Medium cards
-
-.medium-grid  .post-box {
-    height: 400px;
-    overflow: hidden;
-    background: black;
-}
-
-
-.medium-grid .grid-item, .medium-grid .grid-sizer {
-    height: 400px;
-}
-
 // Using media queries with like this:
 // @include media-query($palm) {
 //     .wrapper {
