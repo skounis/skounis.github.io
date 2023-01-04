@@ -11,9 +11,9 @@
       "controller": "did:web:skounis.github.io",
       "publicKeyJwk": {
         "kty": "EC",
-        "crv": "P-256",
-        "x": "ddesamWI4LcuvwGfMoEgGXK30CdFtmiDgjXmQRLHHUw",
-        "y": "XPwgAunAjFOGVKy-TFmVGep2A3JaZgtPyWfRX34uun0"
+        "crv": "secp256k1",
+        "x": "7afa3a377b5808e4223dd62542a6e7e46ab0be95873464520193c1857ec2bb8f",
+        "y": "58b050b73f31f1b8b98c0b04513257433bdad2a51188642d8b0e515fbfb3125f"
       }
     }
   ],
