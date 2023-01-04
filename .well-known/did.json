@@ -1,24 +1,19 @@
 {
   "@context": [
     "https://www.w3.org/ns/did/v1",
-    {
-      "Ed25519VerificationKey2018": "https://w3id.org/security#Ed25519VerificationKey2018",
-      "publicKeyJwk": {
-        "@id": "https://w3id.org/security#publicKeyJwk",
-        "@type": "@json"
-      }
-    }
+    "https://w3id.org/security/suites/jws-2020/v1"
   ],
   "id": "did:web:skounis.github.io",
   "verificationMethod": [
     {
       "id": "did:web:skounis.github.io#owner",
-      "type": "Ed25519VerificationKey2018",
+      "type": "JsonWebKey2020",
       "controller": "did:web:skounis.github.io",
       "publicKeyJwk": {
-        "kty": "OKP",
-        "crv": "Ed25519",
-        "x": "fg0aO9D4x4hOceSS_DPiWK-EYFYu9Dcakr37oAvCHNA"
+        "kty": "EC",
+        "crv": "P-256",
+        "x": "ddesamWI4LcuvwGfMoEgGXK30CdFtmiDgjXmQRLHHUw",
+        "y": "XPwgAunAjFOGVKy-TFmVGep2A3JaZgtPyWfRX34uun0"
       }
     }
   ],
