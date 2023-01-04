@@ -25,3 +25,4 @@ social_medium: https://medium.com/@skounis
 calendly: https://calendly.com/skounis/
 # Build settings
 markdown: kramdown
+include: [".well-known"]
